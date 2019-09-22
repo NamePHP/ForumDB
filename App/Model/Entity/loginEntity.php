@@ -3,9 +3,9 @@
 
 namespace Model\Entity;
 
-use Model\Repository\LoginRepository;
+use Model\Repository\loginRepository;
 
-class  loginModel
+class  loginEntity
 {
     /**
      * @var string
@@ -35,4 +35,6 @@ class  loginModel
     {
         return !empty(trim($this->name)) && !empty(trim($this->password));
     }
+
+
 }

@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <b>Password:</b><br>
-                    <input type="password" name="pass" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="    Ok    ">

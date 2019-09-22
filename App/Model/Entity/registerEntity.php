@@ -4,7 +4,7 @@
 namespace Model\Entity;
 
 
-class registerModel
+class registerEntity
 {
     /**
      * @var string
@@ -18,7 +18,6 @@ class registerModel
     /**
      * registerModel constructor.
      * @param $name
-     * @param $email
      * @param $password
      */
     public function __construct(?string $name, ?string $password)

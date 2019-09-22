@@ -4,7 +4,7 @@
 namespace Model\Repository;
 use PDO;
 
-class LoginRepository
+class loginRepository
 {
     /**
      * @var PDO
@@ -21,10 +21,13 @@ class LoginRepository
     }
 
 
-    public function findLogin(){
+    public function findLogin($name, $password){
         $sth = $this->connection->prepare('SELECT * FROM users where name = :name and password = :password ');
-        $sth->execute(['name' => 'name', 'password' => 'password']);
+        $sth->bindValue(':name',$name,PDO::PARAM_STR);
+        $sth->bindValue(':password',$password,PDO::PARAM_STR);
+        $sth->execute();
 
+        return $res = $sth->fetch(PDO::FETCH_ASSOC);
 
     }
 }

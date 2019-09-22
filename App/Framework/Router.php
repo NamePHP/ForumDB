@@ -11,7 +11,7 @@ class Router
     */
     public function redirect(string $url): void
     {
-        $url = sprintf("Location %s", $url);
+        $url = sprintf("Location: %s", $url);
         header($url);
 
         die();
