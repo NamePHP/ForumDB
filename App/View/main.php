@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Forum</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost/ForumDB/App/public/Css/style.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 </head>
@@ -12,9 +11,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <div class="text-primary text-center"><h1>My forum</h1></div>
-            <h3>Login</h3>
-            <div class ="text-danger text-center" ><h5><b><?= $this->session->getFlash() ?></b></h5></div>
+            <div class="text-primary"><h1>My forum</h1></div>
+
             <form action="" method="post">
                 <div class="form-group">
                     <b>Name:</b><br>
@@ -22,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <b>Password:</b><br>
-                    <input type="password" name="pass" class="form-control" placeholder="Password">
+                    <input type="password" name="password" class="form-control" placeholder="Password">
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="    Ok    ">
@@ -45,3 +43,5 @@
 </html>
 
 <?php
+
+

@@ -1,12 +1,14 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 'on');
-
+require_once 'Config\db.php';
 use Framework\Request;
 use Framework\Session;
+use Framework\Router;
+
 
 define('DS', DIRECTORY_SEPARATOR);
-define('ROOT', __DIR__ . DS); //C:\xampp\htdocs\ForumDB\App\
+define('ROOT', __DIR__ . DS); 
 define('Framework', ROOT . 'Framework' . DS);
 define('CONFIG', ROOT . 'Config' . DS);
 define('View', ROOT . 'View' . DS);
@@ -21,13 +23,18 @@ spl_autoload_register(function (string $className){
 
     require_once $path;
 });
+
+$pdo = new PDO("mysql:host=$host;dbname=$db", $user,$pass);
 $session = new Session();
+$router = new Router();
 $request = new Request($_GET, $_POST, $_FILES);
 $controller = $request->get('_controller', 'default');
 $action = $request->get('_action','index');
 
 $controller = sprintf('Controller\%sController', ucfirst($controller));
 $action = sprintf('%sAction',$action);
-$controller = new $controller;
 
-$controller->$action();
+$controller = new $controller($session,$router, $pdo);
+$controller->$action($request);
+
+

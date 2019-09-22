@@ -1,7 +1,9 @@
 <?php
+namespace Controller;
 
+use Framework\Controller;
 
-class addController
+class addController extends Controller
 {
 
 }
