@@ -23,26 +23,16 @@ class mainRepository
         $this->connection = $connection;
     }
 
-    public function save(mainEntity $main):void
-    {
-        /*$this->connection->
-            prepare('insert into dbforum (name, email, password, title) VALUE (:name, :email, :password, :title )')->
-            execute([
-                'name' => $main->getName(),
-                'email'=> $main->getEmail(),
-                'password' => $main->getPassword(),
-                'title' =>$main->getTitle()
-        ]);*/
-    }
 
     public function findAll(){
-        $info = [];
-        $sth = $this->connection->query('SELECT * FROM info ORDER BY `id` DESC ');
+
+        $sth = $this->connection->query('SELECT i.id , u.name, i.title FROM info i
+        LEFT JOIN users u on i.users_id = u.id ORDER BY `id` DESC ');
 
         while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
-            if($row['title'] != null){
+
                 extract($row);
-            }
+
         }
     }
 }

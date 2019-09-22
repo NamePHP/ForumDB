@@ -2,9 +2,10 @@
 
 
 namespace Model\Repository;
+use Framework\RepositoryInterface;
 use PDO;
 
-class loginRepository
+class loginRepository implements RepositoryInterface
 {
     /**
      * @var PDO

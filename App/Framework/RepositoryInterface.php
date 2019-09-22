@@ -4,7 +4,7 @@
 namespace Framework;
 
 
-class RepositoryInterface
+interface  RepositoryInterface
 {
 
 }

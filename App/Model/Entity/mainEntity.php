@@ -17,10 +17,6 @@ class mainEntity
     /**
      * @var
      */
-    private $password;
-    /**
-     * @var
-     */
     private $title;
 
     /**
@@ -65,23 +61,8 @@ class mainEntity
     }
 
 
-    /**
-     * @return mixed
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
 
-    /**
-     * @param mixed $password
-     */
-    public function setPassword($password): void
-    {
-        $this->password = $password;
-    }
-
-    /**
+     /**
      * @return mixed
      */
     public function getTitle():string

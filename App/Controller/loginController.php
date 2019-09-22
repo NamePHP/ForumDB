@@ -6,8 +6,7 @@ namespace Controller;
 use Framework\Controller;
 use Framework\Request;
 use Model\Entity\loginEntity;
-use PDO;
-use Model\Repository\loginRepository;
+
 
 class loginController extends Controller
 {
@@ -21,12 +20,12 @@ class loginController extends Controller
         if($request->isPost()){
             if($login->isValid()){
 
-                var_dump($this->repositoryProvider->getRepository(loginRepository::class)->findLogin($request->post('name'),
-                    $request->post('password')));
-                die();
+                if($this->repositoryProvider->getRepository(loginEntity::class)->findLogin($request->post('name'),
+                    $request->post('password'))){
+                    $this->router->redirect('?_controller=main&_action=main');
+                    die();
+                }
 
-                $this->router->redirect('?_controller=main&_action=main');
-                die();
             }
             $this->session->setFlash('Fail');
         }
