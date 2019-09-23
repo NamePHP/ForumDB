@@ -15,32 +15,24 @@
 
             <form action="" method="post">
                 <div class="form-group">
-                    <b>Name:</b><br>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <b>Password:</b><br>
-                    <input type="password" name="password" class="form-control" placeholder="Password">
+                    <b>Text:</b><br>
+                    <textarea name="text" cols="50" rows="5"></textarea>
                 </div>
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="    Ok    ">
                 </div>
             </form>
 
-            <a href="http://localhost/ForumDB/App/?_controller=register&_action=contact">
-                <button type="submit" class="btn btn-primary" name="register">Register</button>
-            </a>
 
         </div>
     </div>
 
 </div>
 <hr>
-<?php
 
-
-
-?>
+<?foreach($args['main'] as $m): ?>
+    <div><?= $m ?></div>
+<? endforeach;?>
 
 
 </body>

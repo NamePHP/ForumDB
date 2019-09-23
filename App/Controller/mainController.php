@@ -9,8 +9,13 @@ use Model\Entity\mainEntity;
 
 class mainController extends Controller
 {
-    public function mainAction(Request $request){
-        $this->repositoryProvider->getRepository(mainEntity::class)->findAll();
-        require View . 'main.php';
+    public function mainAction(Request $request) :string
+    {
+
+        /*$main = $this->repositoryProvider->getRepository(mainEntity::class)->findAll();*/
+        $main =[1,2,3,4,4];
+        var_dump($this->render('main.php',[$main]));
+        die();
+
     }
 }

@@ -3,11 +3,11 @@
 
 namespace Model\Repository;
 
-use Model\Entity\mainEntity;
+use Framework\RepositoryInterface;
 use PDO;
 
 
-class mainRepository
+class mainRepository implements RepositoryInterface
 {
     /**
      * @var PDO
@@ -24,15 +24,17 @@ class mainRepository
     }
 
 
-    public function findAll(){
-
+    public function findAll():array
+    {
+        $main = [];
         $sth = $this->connection->query('SELECT i.id , u.name, i.title FROM info i
-        LEFT JOIN users u on i.users_id = u.id ORDER BY `id` DESC ');
+                                           LEFT JOIN users u on i.users_id = u.id ORDER BY `id` DESC ');
 
-        while ($row = $sth->fetch(PDO::FETCH_ASSOC)){
-
-                extract($row);
-
+        while ($data = $sth->fetchAll(PDO::FETCH_ASSOC)){
+            $main = $data;
         }
+
+        return $main;
     }
+
 }

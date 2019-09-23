@@ -27,7 +27,7 @@ abstract class Controller
      * @param Session $session
      * @param Router $router
      * @param PDO $connection
-     *
+     * @param RepositoryProvider $repositoryProvider
      */
     public function __construct(Session $session, Router $router, PDO $connection, RepositoryProvider $repositoryProvider)
     {
@@ -38,5 +38,11 @@ abstract class Controller
 
     }
 
+    public function render(string $view, array $args = []): string
+    {
+        extract($args);//C:\xampp\htdocs\ForumDB\App\Framework\Controller.php:43:int 1
+
+        return require View . "$view";
+    }
 
 }

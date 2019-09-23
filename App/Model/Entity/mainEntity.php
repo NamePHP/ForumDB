@@ -20,13 +20,19 @@ class mainEntity
     private $title;
 
     /**
-     * mainModel constructor.
+     * mainEntity constructor.
+     * @param $id
+     * @param $name
      * @param $title
      */
-    public function __construct($title)
+    public function __construct($id, $name, $title)
     {
+        $this->id = $id;
+        $this->name = $name;
         $this->title = $title;
     }
+
+
 
     /**
      * @return mixed
