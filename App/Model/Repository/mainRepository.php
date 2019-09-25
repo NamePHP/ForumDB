@@ -37,4 +37,12 @@ class mainRepository implements RepositoryInterface
         return $main;
     }
 
+    public function addTitle($users_id, $title){
+        $sth = $this->connection->prepare('insert into info (users_id, title) values (:users_id, :title)');
+        $sth->bindValue(':users_id',$users_id,PDO::PARAM_STR);
+        $sth->bindValue(':title',$title,PDO::PARAM_STR);
+        $sth->execute();
+
+        return $res = $sth->fetch(PDO::FETCH_ASSOC);
+    }
 }

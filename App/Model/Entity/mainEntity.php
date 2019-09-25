@@ -13,7 +13,7 @@ class mainEntity
     /**
      * @var
      */
-    private $name;
+    private $users_id;
     /**
      * @var
      */
@@ -21,23 +21,19 @@ class mainEntity
 
     /**
      * mainEntity constructor.
-     * @param $id
-     * @param $name
+     * @param $users_id
      * @param $title
      */
-    public function __construct($id, $name, $title)
+    public function __construct($users_id, $title)
     {
-        $this->id = $id;
-        $this->name = $name;
+        $this->users_id= $users_id;
         $this->title = $title;
     }
-
-
 
     /**
      * @return mixed
      */
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
@@ -53,25 +49,23 @@ class mainEntity
     /**
      * @return mixed
      */
-    public function getName(): string
+    public function getIdName()
     {
-        return $this->name;
+        return $this->users_id;
     }
 
     /**
-     * @param mixed $name
+     * @param mixed $users_id
      */
-    public function setName($name): void
+    public function setIdName($users_id): void
     {
-        $this->name = $name;
+        $this->users_id = $users_id;
     }
 
-
-
-     /**
+    /**
      * @return mixed
      */
-    public function getTitle():string
+    public function getTitle()
     {
         return $this->title;
     }
@@ -82,6 +76,11 @@ class mainEntity
     public function setTitle($title): void
     {
         $this->title = $title;
+    }
+
+    public function isValid(): bool
+    {
+        return !empty(trim($this->title));
     }
 
 }

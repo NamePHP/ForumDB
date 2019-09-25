@@ -12,10 +12,24 @@ class mainController extends Controller
     public function mainAction(Request $request) :string
     {
 
-        /*$main = $this->repositoryProvider->getRepository(mainEntity::class)->findAll();*/
-        $main =[1,2,3,4,4];
-        var_dump($this->render('main.php',[$main]));
-        die();
+        $main = $this->repositoryProvider->getRepository(mainEntity::class)->findAll();
+
+        return $this->render('main.php',['main' => $main]);
 
     }
+
+    public function addAction(Request $request)
+    {
+        $id = (int)$this->session->getId();
+        $main = new mainEntity($id,$request->post('title'));
+
+        if ($request->isPost()) {
+            if ($main->isValid()) {
+                $this->repositoryProvider->getRepository(mainEntity::class)->addTitle($main->getIdName(),$main->getTitle());
+                $this->router->redirect('?_controller=main&_action=main');
+                die();
+            }
+        }
+    }
 }
+

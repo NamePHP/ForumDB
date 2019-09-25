@@ -38,10 +38,14 @@ abstract class Controller
 
     }
 
-    public function render(string $view, array $args = []): string
+    /**
+     * @param string $view
+     * @param array $args
+     * @return string
+     */
+    protected function render(string $view, array $args = []): string
     {
-        extract($args);//C:\xampp\htdocs\ForumDB\App\Framework\Controller.php:43:int 1
-
+        extract($args);
         return require View . "$view";
     }
 

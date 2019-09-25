@@ -20,14 +20,17 @@ class loginController extends Controller
         if($request->isPost()){
             if($login->isValid()){
 
-                if($this->repositoryProvider->getRepository(loginEntity::class)->findLogin($request->post('name'),
-                    $request->post('password'))){
+                if($log = $this->repositoryProvider->getRepository(loginEntity::class)->findLogin($login->getName(),$login->getPassword())){
+                    $this->session->setName($request->post('name'));
+                    $this->session->setId((int)$log['id']);
                     $this->router->redirect('?_controller=main&_action=main');
                     die();
                 }
-
+                $this->session->setFlash('Incorrect login or password');
+                require View . 'login.php';
+                die();
             }
-            $this->session->setFlash('Fail');
+            $this->session->setFlash('Enter all fields');
         }
         require View . 'login.php';
     }

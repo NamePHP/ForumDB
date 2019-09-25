@@ -14,6 +14,7 @@
         <div class="col-md-6">
             <div class="text-primary text-center"><h1>My forum</h1></div>
             <h3>Register</h3>
+            <div class ="text-danger text-center" ><h5><b><?= $this->session->getFlash() ?></b></h5></div>
             <form action="" method="post">
                 <div class="form-group">
                     <b>Name:</b><br>

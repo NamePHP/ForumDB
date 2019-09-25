@@ -6,6 +6,8 @@ namespace Framework;
 class Session
 {
     const SESS = 'session_flash';
+    const NAME = 'name';
+    const ID = 'id';
 
     /**
      * Session constructor.
@@ -71,5 +73,39 @@ class Session
         return $message;
     }
 
+    /**
+     * @param string $message
+     */
+    public function setName(string $message): void
+    {
+        $_SESSION[self::NAME] = $message;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        $massage = $this->get(self::NAME);
+
+        return $massage;
+    }
+    /**
+    * @param string $message
+    */
+    public function setId(string $message): void
+    {
+        $_SESSION[self::ID] = $message;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        $massage = $this->get(self::ID);
+
+        return $massage;
+    }
 
 }

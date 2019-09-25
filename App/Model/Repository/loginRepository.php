@@ -3,6 +3,7 @@
 
 namespace Model\Repository;
 use Framework\RepositoryInterface;
+use Model\Entity\loginEntity;
 use PDO;
 
 class loginRepository implements RepositoryInterface
@@ -23,12 +24,15 @@ class loginRepository implements RepositoryInterface
 
 
     public function findLogin($name, $password){
+
         $sth = $this->connection->prepare('SELECT * FROM users where name = :name and password = :password ');
         $sth->bindValue(':name',$name,PDO::PARAM_STR);
         $sth->bindValue(':password',$password,PDO::PARAM_STR);
-        $sth->execute();
 
+        $sth->execute();
         return $res = $sth->fetch(PDO::FETCH_ASSOC);
 
     }
+
+
 }

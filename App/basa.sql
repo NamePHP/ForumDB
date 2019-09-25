@@ -7,7 +7,7 @@ CREATE TABLE `my_forum`.`dbforum` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name
 
 CREATE TABLE `my_forum`.`users` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `name` VARCHAR(25) NOT NULL , `password` VARCHAR(35) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
-CREATE TABLE `my_forum`.`info` ( `id` INT(11) NOT NULL , `users_id` INT(11) NOT NULL , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+CREATE TABLE `my_forum`.`info` ( `id` INT(11) NOT NULL AUTO_INCREMENT , `users_id` INT(11) NOT NULL , `title` VARCHAR(50) NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 
 ALTER TABLE `info` ADD FOREIGN KEY (`users_id`) REFERENCES `users`(`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
