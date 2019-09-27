@@ -13,7 +13,6 @@ class Router
     {
         $url = sprintf("Location: %s", $url);
         header($url);
-
         die();
     }
 

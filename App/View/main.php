@@ -14,6 +14,7 @@
 <div class="text-primary"><h1>My forum</h1></div>
 Hello  <b><?= $this->session->getName(); ?></b>
 <br>
+<div class ="text-danger" ><h5><b><?= $this->session->getFlash() ?></b></h5></div>
 <form action="?_controller=main&_action=add" method="post">
     <div class="form-group">
         <b>Text:</b><br>

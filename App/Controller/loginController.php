@@ -24,15 +24,15 @@ class loginController extends Controller
                     $this->session->setName($request->post('name'));
                     $this->session->setId((int)$log['id']);
                     $this->router->redirect('?_controller=main&_action=main');
-                    die();
+
                 }
                 $this->session->setFlash('Incorrect login or password');
-                require View . 'login.php';
-                die();
+                return require View . 'login.php';
+
             }
             $this->session->setFlash('Enter all fields');
         }
-        require View . 'login.php';
+        return $this->render('login.php');
     }
 
 

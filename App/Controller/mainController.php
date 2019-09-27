@@ -27,9 +27,10 @@ class mainController extends Controller
             if ($main->isValid()) {
                 $this->repositoryProvider->getRepository(mainEntity::class)->addTitle($main->getIdName(),$main->getTitle());
                 $this->router->redirect('?_controller=main&_action=main');
-                die();
             }
+            $this->session->setFlash('Enter text');
         }
+        $this->router->redirect('?_controller=main&_action=main');
     }
 }
 
