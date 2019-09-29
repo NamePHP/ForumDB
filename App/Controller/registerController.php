@@ -26,15 +26,15 @@ class registerController extends Controller
                         $this->session->setName($loginReg->getName());
                         $register = $this->repositoryProvider->getRepository(registerEntity::class)->findById($loginReg->getName());
                         $this->session->setId($register['id']);
-                        $this->router->redirect('?_controller=main&_action=main');
+                        $this->router->redirect('/main');
 
                     }
                     $this->session->setFlash('Password length > 3 and < 10');
-                    return require View . 'register.php';
+                    return $this->render('register.php');
 
                 }
                 $this->session->setFlash('Name is busy');
-                return require View . 'register.php';
+                return $this->render('register.php');
 
             }
             $this->session->setFlash('Enter all fields');

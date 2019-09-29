@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Forum</title>
-    <link rel="stylesheet" type="text/css" href="http://localhost/ForumDB/App/public/Css/style.css">
+    <link rel="stylesheet" type="text/css" href="http://mysite.loc/public/Css/style.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 </head>
@@ -29,7 +29,7 @@
                 </div>
             </form>
 
-            <a href="http://localhost/ForumDB/App/?_controller=login&_action=log">
+            <a href="/login">
                 <button type="submit" class="btn btn-primary" name="back">Back</button>
             </a>
 

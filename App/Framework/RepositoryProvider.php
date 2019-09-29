@@ -47,7 +47,7 @@ class RepositoryProvider
         if (!empty($this->cachedRepository[$entityClass])) {
             return $this->cachedRepository[$entityClass];
         }
-        // FeedbackRepository::class
+
         $repositoryClass = $this->repositoryMap[$entityClass];
         // если есть - создаем экземпляр репозитория
         return $this->cachedRepository[$entityClass] = new $repositoryClass($this->connection);

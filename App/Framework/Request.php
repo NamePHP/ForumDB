@@ -9,17 +9,21 @@ class Request
 
     private $file;
 
+    private $server;
+
     /**
      * Request constructor.
      * @param $get
      * @param $post
      * @param $file
+     * @param $server
      */
-    public function __construct(array $get, array $post, array $file)
+    public function __construct(array $get, array $post, array $server, array $file)
     {
         $this->get = $get;
         $this->post = $post;
         $this->file = $file;
+        $this->server = $server;
     }
 
     /**

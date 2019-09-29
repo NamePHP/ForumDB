@@ -23,11 +23,11 @@ class loginController extends Controller
                 if($log = $this->repositoryProvider->getRepository(loginEntity::class)->findLogin($login->getName(),$login->getPassword())){
                     $this->session->setName($request->post('name'));
                     $this->session->setId((int)$log['id']);
-                    $this->router->redirect('?_controller=main&_action=main');
+                    $this->router->redirect('/main');
 
                 }
                 $this->session->setFlash('Incorrect login or password');
-                return require View . 'login.php';
+                return $this->render('login.php');
 
             }
             $this->session->setFlash('Enter all fields');

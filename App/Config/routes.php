@@ -26,4 +26,9 @@ return [
         'controller' => mainController::class,
         'action' => 'mainAction'
     ],
+    'mainAdd' =>[
+        'pattern' => '/main-add',
+        'controller' => mainController::class,
+        'action' => 'addAction'
+    ]
 ];
